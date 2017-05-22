@@ -3,7 +3,7 @@ package com.mycompany;
 /**
  * Created by kornel on 22.05.17.
  */
-public class BubbleSorter implements sortable{
+public class BubbleSorter implements Sorter {
     public Person[] sort(Person[] p) {
         for (int i = 0; i < p.length - 1; i++)
         {
@@ -12,9 +12,9 @@ public class BubbleSorter implements sortable{
                 if (p[j].getAge() < p[tmp].getAge())
                     tmp = j;
 
-            int smallerNumber = p[tmp].getAge();
-            p[tmp].setAge(p[i].getAge());
-            p[i].setAge(smallerNumber);
+            Person tempPerson = p[tmp];
+            p[tmp] = p[i];
+            p[i] = tempPerson;
         }
         return p;
     }

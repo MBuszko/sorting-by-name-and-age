@@ -3,7 +3,7 @@ package com.mycompany;
 /**
  * Created by kornel on 22.05.17.
  */
-public class SelectionSorter implements sortable {
+public class SelectionSorter implements Sorter {
     public Person[] sort(Person[] p) {
         for (int i = 0; i < p.length; i++) {
             for (int j = i; j < p.length - 1; j++) {
