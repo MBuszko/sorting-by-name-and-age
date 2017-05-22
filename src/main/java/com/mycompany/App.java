@@ -17,64 +17,29 @@ public class App {
                 new Person("Mikołajski", 23)
         };
 
-        /*
-        System.out.println();
-        sortTable(table);
-        //Integer min = min(table);
-        //System.out.println(min);
-        System.out.println();
-        printTable(table);
-        */
-        System.out.println(1);
+//        System.out.println();
+//        sortTable(table);
+//        //Integer min = min(table);
+//        //System.out.println(min);
+//        System.out.println();
+//        printTable(table);
 
         printTableOfPeople(tableOfPeople);
-        selectionSort(tableOfPeople);
-        System.out.println();
+        //selectionSort(tableOfPeople);
+        //System.out.println();
+        //printTableOfPeople(tableOfPeople);
+
+        System.out.println("-----Bubble Sort-----");
+        //creating BubbleSorter
+        BubbleSorter bubbleSorter = new BubbleSorter();
+        bubbleSorter.sort(tableOfPeople);
         printTableOfPeople(tableOfPeople);
+
+        //creating SelectionSorter
+        //SelectionSorter selectionSorter = new SelectionSorter();
+        //selectionSorter.sort(tableOfPeople);
+       // printTableOfPeople(tableOfPeople);
     }
-
-
-    public static Person[] selectionSort(Person[] persons) {
-        for (int i = 0; i < persons.length; i++) {
-            for (int j = i; j < persons.length - 1; j++) {
-                if (persons[i].getAge() > persons[j + 1].getAge()) {
-                    swap(persons, i, j + 1);
-                }
-                if (persons[i].getAge() == persons[j + 1].getAge()) {
-                    if (!isHigherInAlphabet(persons[i].getSurname(), persons[j + 1].getSurname())) {
-                        swap(persons, i, j + 1);
-                    }
-                }
-            }
-        }
-
-        return persons;
-    }
-
-    //checks alphabetical order of two Strings and returns true if first is higher
-    public static boolean isHigherInAlphabet(String first, String second) {
-        if (first.compareTo(second) < 0) {
-            return true;
-        } else
-            return false;
-    }
-
-    public static Person[] swap(Person[] persons, int p, int r) {
-        Person temp = persons[p];
-        persons[p] = persons[r];
-        persons[r] = temp;
-
-        return persons;
-    }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,9 +60,6 @@ public class App {
         }
         return table;
         }
-
-
-
 
 
     public static Integer min(Integer[] table) {

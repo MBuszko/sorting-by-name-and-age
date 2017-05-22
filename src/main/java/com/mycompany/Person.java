@@ -21,15 +21,11 @@ public class Person {
         return age;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
-    public int compareTo(Person p) {
-        int comparedSurname = surname.compareTo(p.surname);
-
-        if(comparedSurname == 0) {
-            return age.compareTo(p.age);
-        }
-        else {
-            return comparedSurname;
-        }
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
