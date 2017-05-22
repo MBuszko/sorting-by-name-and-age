@@ -20,4 +20,16 @@ public class Person {
     public Integer getAge() {
         return age;
     }
+
+
+    public int compareTo(Person p) {
+        int comparedSurname = surname.compareTo(p.surname);
+
+        if(comparedSurname == 0) {
+            return age.compareTo(p.age);
+        }
+        else {
+            return comparedSurname;
+        }
+    }
 }

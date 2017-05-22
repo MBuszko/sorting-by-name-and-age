@@ -28,37 +28,57 @@ public class App {
         System.out.println(1);
 
         printTableOfPeople(tableOfPeople);
-        sortTableOfPeople(tableOfPeople);
+        selectionSort(tableOfPeople);
         System.out.println();
         printTableOfPeople(tableOfPeople);
     }
 
-    public static Person[]sortTableOfPeople(Person[] tableOfPeople) {
 
-        for (int i = 0; i < tableOfPeople.length; i++)
-        {
-            int tmp = i;
-            for (int j = i + 1; j < tableOfPeople.length; j++)
-                if (tableOfPeople[j].getSurname().compareTo(tableOfPeople[tmp].getSurname()))
-                    tmp = j;
-
-                //if (tableOfPeople[j].getAge() < tableOfPeople[tmp].getAge())
-                  //  tmp = j;
-
-
-                /*if (tableOfPeople[j].getSurname().equals(tableOfPeople[tmp].getSurname()))
-                    if (tableOfPeople[j].getAge() < tableOfPeople[tmp].getAge())
-                        tmp = j;
-                else if (tableOfPeople[j].getAge() < tableOfPeople[tmp].getAge())
-                    tmp =j;*/
-
-
-            Person smallerNumber = tableOfPeople[tmp];
-            tableOfPeople[tmp] = tableOfPeople[i];
-            tableOfPeople[i] = smallerNumber;
+    public static Person[] selectionSort(Person[] persons) {
+        for (int i = 0; i < persons.length; i++) {
+            for (int j = i; j < persons.length - 1; j++) {
+                if (persons[i].getAge() > persons[j + 1].getAge()) {
+                    swap(persons, i, j + 1);
+                }
+                if (persons[i].getAge() == persons[j + 1].getAge()) {
+                    if (!isHigherInAlphabet(persons[i].getSurname(), persons[j + 1].getSurname())) {
+                        swap(persons, i, j + 1);
+                    }
+                }
+            }
         }
-        return tableOfPeople;
+
+        return persons;
     }
+
+    //checks alphabetical order of two Strings and returns true if first is higher
+    public static boolean isHigherInAlphabet(String first, String second) {
+        if (first.compareTo(second) < 0) {
+            return true;
+        } else
+            return false;
+    }
+
+    public static Person[] swap(Person[] persons, int p, int r) {
+        Person temp = persons[p];
+        persons[p] = persons[r];
+        persons[r] = temp;
+
+        return persons;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static Integer[]sortTable(Integer[] table) {
 
